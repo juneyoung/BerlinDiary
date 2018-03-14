@@ -19,9 +19,38 @@ div.mainContainer {
 	position: fixed;
 }
 
+/* title shot */
+
+div.mainContainer>div.mainBanner {
+	width: 100%;
+	margin: 0px auto;
+	position: relative;
+}
+
+div.mainContainer>div.mainBanner>div.titleHolder {
+	position: relative;
+	float: left;
+	width: 80%;
+	margin: 10%;
+	font-size: 1em;
+	color: yellow;
+}
+
+div.mainContainer>div.mainBanner>div.float_info {
+	position: absolute;
+	top: 10px;
+	right: 10px;
+}
+
+img.githubLog {
+	width: 50px;
+	height: auto;
+}
+
 div.mainContainer>div.contentsHolder {
 	width: 80%;
 	background-color: #CCE5FF;
 	min-height: 200px;
 	margin-left: 10%;
+	padding: 20px;
 }

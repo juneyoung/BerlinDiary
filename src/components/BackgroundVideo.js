@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 
-export default class BackgroundVideo extends React.Component {
+export default class BackgroundVideo extends Component {
 
 	constructor () {
 		super();
@@ -19,7 +19,9 @@ export default class BackgroundVideo extends React.Component {
 
 		return (
 			<div className="bg_video">
-				
+				<video with='100%' height='auto;' autoplay='true'>
+					<source src="assets/media/dock.mp4" type="video/mp4"></source>
+				</video>
 			</div>
 		)
 	}
