@@ -1,0 +1,26 @@
+import React, { Component } from 'react';
+
+
+export default class BackgroundVideo extends React.Component {
+
+	constructor () {
+		super();
+		this.state = {
+			debuggingName : 'Background Video Area'
+		}
+	}
+	
+
+	render () {
+		/*
+			video 태그는 브라우저에 따라 호환이 다름 
+		*/
+
+
+		return (
+			<div className="bg_video">
+				
+			</div>
+		)
+	}
+}

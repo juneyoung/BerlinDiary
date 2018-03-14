@@ -1,0 +1,27 @@
+body {
+	
+}
+
+
+div.bg_video {
+	width: 100%;
+	z-index: -99;
+	background-color: #C0C0C0;
+	min-height: 200px;
+	position: fixed;
+}
+
+div.mainContainer {
+	width: 100%;
+	opacity: 0.5;
+	background-color: #3366ff;
+	min-height: 200px;
+	position: fixed;
+}
+
+div.mainContainer>div.contentsHolder {
+	width: 80%;
+	background-color: #CCE5FF;
+	min-height: 200px;
+	margin-left: 10%;
+}
