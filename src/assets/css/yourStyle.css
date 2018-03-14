@@ -32,7 +32,14 @@ div.mainContainer>div.mainBanner>div.titleHolder {
 	float: left;
 	width: 80%;
 	margin: 10%;
-	font-size: 1em;
+	/*font-size: 3em;*/
+	font-size: 100px;
+	font-style: bold;
+	color: yellow;
+}
+
+div.mainContainer>div.mainBanner>div.titleHolder>p {
+	font-size: 20px;
 	color: yellow;
 }
 
