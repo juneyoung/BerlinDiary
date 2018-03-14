@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MainContainer jest Matching to snapshot 1`] = `
+<div
+  className="mainContainer"
+>
+  <MainBanner />
+  <div
+    className="contentsHolder"
+  >
+    1. put Title inside here 
+    <br />
+    2. put PullToRefresh List...
+  </div>
+</div>
+`;
