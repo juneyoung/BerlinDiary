@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import BackgroundVideo from './components/BackgroundVideo';
 import MainContainer from './components/MainContainer';
+import StaticFooter from './components/StaticFooter'
 // import logo from './logo.svg';
 import './App.css';
 
@@ -20,6 +21,7 @@ class App extends Component {
       <div className="App">
         <BackgroundVideo />
         <MainContainer />
+        <StaticFooter />
       </div>
     );
   }

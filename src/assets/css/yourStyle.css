@@ -16,16 +16,17 @@ div.mainContainer {
 	opacity: 0.5;
 	background-color: #3366ff;
 	min-height: 200px;
-	position: fixed;
+	/*position: fixed;*/
 }
 
 /* title shot */
 
 div.mainContainer>div.mainBanner {
 	width: 100%;
-	/*min-height: auto;*/
 	margin: 0px auto;
 	position: relative;
+	height: 1%;
+	overflow: hidden;
 }
 
 div.mainContainer>div.mainBanner>div.titleHolder {
@@ -96,4 +97,19 @@ div.dateTitle {
 	max-width: 50px;
 	align-content: center;
 	background-color: #fbe8a6 !important;
+}
+
+
+/*
+	FOOTER
+*/
+
+div.footer {
+	/*position: relative;*/
+	background-color: #d8c3a5;
+}
+
+div.footer>div.footerContent {
+	height: 1%;
+	overflow: hidden;
 }
