@@ -40,7 +40,7 @@ export default class LinearContentsContainer extends Component {
 						Object.keys(posts).map((date, i) => {
 							console.log(posts[date], i);
 							return (
-								<HorizontalContentsContainer title={date} data={posts[date]}/>	
+								<HorizontalContentsContainer title={date} data={posts[date]} key={i}/>	
 							);
 						})
 					}

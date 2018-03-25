@@ -106,10 +106,16 @@ div.dateTitle {
 
 div.footer {
 	/*position: relative;*/
-	background-color: #d8c3a5;
+	background-color: #272f2e;
 }
 
 div.footer>div.footerContent {
 	height: 1%;
 	overflow: hidden;
+	color: white;
+	padding: 2%;
+}
+
+div.footerContent>a {
+	text-decoration: none;
 }
