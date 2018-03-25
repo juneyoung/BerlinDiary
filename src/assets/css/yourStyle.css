@@ -23,6 +23,7 @@ div.mainContainer {
 
 div.mainContainer>div.mainBanner {
 	width: 100%;
+	/*min-height: auto;*/
 	margin: 0px auto;
 	position: relative;
 }
@@ -59,5 +60,40 @@ div.mainContainer>div.contentsHolder {
 	background-color: #CCE5FF;
 	min-height: 200px;
 	margin-left: 10%;
-	padding: 20px;
+	/*padding: 20px;*/
+}
+
+
+/*
+ 0325 - contents area
+*/
+
+div.linearContentsContainer {
+	background-color: #f98866;
+	height: 100%;
+	/*overflow: auto;*/
+}
+
+
+div.horizontalContents {
+	display: table;
+	margin: 2%;
+}
+
+div.table_row {
+	display: table-row;
+	min-height: 200px;
+	background-color: #8eff60;
+}
+
+div.table_row>div.table_cell {
+	display: table-cell;
+	background-color: #6cdaee;
+}
+
+
+div.dateTitle {
+	max-width: 50px;
+	align-content: center;
+	background-color: #fbe8a6 !important;
 }
