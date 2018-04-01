@@ -43,7 +43,7 @@ export default class BackgroundVideo extends Component {
 		return (
 			<div className="bg_video">
 				<video width={ backgroundVideoWidth } height={ backgroundVideoHeight } autoPlay='true' loop>
-					<source src="assets/media/BerlinPixaBoy.mp4" type="video/mp4"></source>
+					<source src="assets/media/Berlin_timelaps_videvo.m4v" type="video/mp4"></source>
 				</video>
 			</div>
 		)
