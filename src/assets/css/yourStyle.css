@@ -60,10 +60,20 @@ div.mainContainer>div.contentsHolder {
 	overflow: hidden;
 }
 
+div.contentBg {
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	background-color: #333333;
+	z-index: -90;
+	opacity: .5;
+}
+
 div.mainContainer>div.dimmed {
 	background-color: #333333;
 	z-index: -90;
-	opacity: 1;
+	opacity: .7;
 }
 
 
@@ -72,27 +82,29 @@ div.mainContainer>div.dimmed {
 */
 
 div.linearContentsContainer {
-	padding: 2%;
+	padding: 5%;
 	height: 100%;
+	max-height: 1500px;
+	overflow-y: auto;
 }
 
 
 div.horizontalContents {
 	display: table;
-	margin: 2%;
-	width: inherit;
+	/*padding: 2%;*/
+	width: 100%;
+	margin: 1%;
 }
 
 div.table_row {
 	display: table-row;
 	height: 250px;
 	width: inherit;
-	background-color: #8eff60;
+	background-color: #1e90ff;
 }
 
 div.table_row>div.table_cell {
 	display: table-cell;
-	background-color: #6cdaee;
 	overflow: hidden;
 	min-width: 150px;
 }
@@ -102,9 +114,9 @@ div.table_row>div.cellTitle {
 	color: white;
 	font-weight: bold;
 	font-size: 2em;
-	max-width: 50px;
 	vertical-align: middle;
-	background-color: #272f2e !important;
+	background-color: #272f2e;
+	width: 150px !important;
 }
 
 div.table_row>div.cellContents {
@@ -156,4 +168,39 @@ div.footerContent>a {
 
 /*
 	Image Slider
+	https://stackoverflow.com/questions/26320050/displaying-divs-as-list-items-in-a-horizontally-scrolling-parent-div
 */
+
+div.mediaSlider {
+	/*background-color: #272f2e;*/
+	/*opacity: .5;*/
+    overflow-x: auto;
+    white-space: nowrap;
+    text-align: left;
+}
+
+div.mediaPost {
+	background-color:  #272f2e;
+	margin: 1%;
+	padding: 1%;
+    display: inline-block;
+    overflow: hidden;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    width: 250px;
+    height: 200px;
+
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+div.mediaPost>img {
+	width: 200px;
+	height: auto;
+}
+
+div.mediaPost>video {
+	width: 200px;
+	height: auto;
+}

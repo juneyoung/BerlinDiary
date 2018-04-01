@@ -131,7 +131,8 @@ export default class MainContainer extends Component {
 		return (
 			<div className='mainContainer'>
 				<MainBanner />
-				<div className='contentsHolder dimmed'>
+				<div className='contentsHolder'>
+					<div className='contentBg dimmed'></div>
 					<LinearContentsContainer posts={this.state.sampleData}/>
 				</div>
 			</div>

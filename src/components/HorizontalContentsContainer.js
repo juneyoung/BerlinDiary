@@ -1,4 +1,5 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import MediaSlider from './MediaSlider';
 
 export default class HorizontalContentsContainer extends Component {
 	
@@ -23,24 +24,29 @@ export default class HorizontalContentsContainer extends Component {
 						{ horizontalTitle.substring(0, 4) }
 					</div>
 					<div className='table_cell cellContents'>
-						{
-							posts.map((post, i) => {
-								return (
-									<div key={i}>
-										<div>
-											{ post.date }
-										</div>
-										<div>
-											{ JSON.stringify(post) }
-										</div>
-									</div>
-								);	
-							})
-						}
+						<MediaSlider data={posts}/>
 					</div>
-			
 				</div>
 			</div>
 		);
 	}
 }
+
+
+
+/*
+{
+	posts.map((post, i) => {
+		return (
+			<div key={i} className='mediaPost'>
+				<div>
+					{ post.date }
+				</div>
+				<div>
+					{ JSON.stringify(post) }
+				</div>
+			</div>
+		);	
+	})
+}
+*/
