@@ -24,7 +24,6 @@ div.mainContainer>div.mainBanner {
 	margin: 0px auto;
 	position: relative;
 	height: 1%;
-	overflow: hidden;
 }
 
 div.mainContainer>div.mainBanner>div.titleHolder {
@@ -57,7 +56,6 @@ img.githubLog {
 div.mainContainer>div.contentsHolder {
 	width: 100%;
 	min-height: 200px;
-	overflow: hidden;
 }
 
 div.contentBg {
@@ -105,7 +103,6 @@ div.table_row {
 
 div.table_row>div.table_cell {
 	display: table-cell;
-	overflow: hidden;
 	min-width: 150px;
 }
 
@@ -135,7 +132,7 @@ div.footer {
 
 div.footer>div.footerContent {
 	height: 1%;
-	overflow: hidden;
+	/*overflow: hidden;*/
 	color: white;
 	padding: 2%;
 	min-height: 150px;
@@ -172,8 +169,6 @@ div.footerContent>a {
 */
 
 div.mediaSlider {
-	/*background-color: #272f2e;*/
-	/*opacity: .5;*/
     overflow-x: auto;
     white-space: nowrap;
     text-align: left;
@@ -184,13 +179,13 @@ div.mediaPost {
 	margin: 1%;
 	padding: 1%;
     display: inline-block;
-    overflow: hidden;
-    color: white;
-    font-weight: bold;
     text-align: center;
     width: 250px;
     height: 200px;
 
+    color: white;
+    font-weight: bold;
+    overflow-x: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
 }
