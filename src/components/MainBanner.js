@@ -22,7 +22,7 @@ export default class MainBanner extends Component {
 			<div className='mainBanner'>
 				<div className='titleHolder'>
 					印象柏林
-					<p>Impression of Berlin</p>
+					<p>Impression of Berlin, JUNE 2018</p>
 				</div>
 				<div className='float_info'>
 					<img className='githubLog' alt='GitHub Logos' src='../assets/images/logos/GitHub_Logo_White.png' onClick={this.openGitHub} />

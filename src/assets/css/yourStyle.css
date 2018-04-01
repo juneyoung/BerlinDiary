@@ -50,7 +50,7 @@ div.mainContainer>div.mainBanner>div.float_info {
 }
 
 img.githubLog {
-	width: 50px;
+	width: 70px;
 	height: auto;
 }
 
@@ -126,8 +126,34 @@ div.footer>div.footerContent {
 	overflow: hidden;
 	color: white;
 	padding: 2%;
+	min-height: 150px;
+
+
+	display:-ms-flexbox;
+	-ms-flex-pack:center;
+	-ms-flex-align:center;
+
+	/* Firefox */
+	display:-moz-box;
+	-moz-box-pack:center;
+	-moz-box-align:center;
+
+	/* Safari, Opera, and Chrome */
+	display:-webkit-box;
+	-webkit-box-pack:center;
+	-webkit-box-align:center;
+
+	/* W3C */
+	display:box;
+	box-pack:center;
+	box-align:center;
 }
 
 div.footerContent>a {
 	text-decoration: none;
 }
+
+
+/*
+	Image Slider
+*/
