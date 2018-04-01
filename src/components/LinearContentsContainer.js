@@ -2,16 +2,6 @@ import React, { Component } from 'react';
 import HorizontalContentsContainer from './HorizontalContentsContainer'; 
 
 export default class LinearContentsContainer extends Component {
-
-	/*
-		데이터를 가정한다 .
-		seq : 0
-		, date : 20180325123000
-		, type : 'video/photo'
-		, 
-
-	*/
-
 	
 	constructor(){
 		super();
@@ -27,9 +17,6 @@ export default class LinearContentsContainer extends Component {
 		let posts = this.props.posts;
 		console.log('Here are the posts :: ', posts);
 		window.posts = posts;
-
-
-
 
 
 		return (

@@ -30,11 +30,11 @@ div.mainContainer>div.mainBanner {
 div.mainContainer>div.mainBanner>div.titleHolder {
 	position: relative;
 	float: left;
-	width: 80%;
-	margin: 10%;
-	/*font-size: 3em;*/
-	font-size: 100px;
-	font-style: bold;
+	width: 100%;
+	margin-top: 15%;
+	margin-bottom: 5%;
+	font-size: 4em;
+	font-weight: bold;
 	color: yellow;
 }
 
@@ -60,14 +60,10 @@ div.mainContainer>div.contentsHolder {
 	overflow: hidden;
 }
 
-div.contentsHolder>div.dimGround {
-	position: absolute;
-	width: 100%;
-	height: 100%;
-
+div.mainContainer>div.dimmed {
 	background-color: #333333;
 	z-index: -90;
-	opacity: .7;
+	opacity: 1;
 }
 
 
@@ -89,7 +85,7 @@ div.horizontalContents {
 
 div.table_row {
 	display: table-row;
-	min-height: 200px;
+	height: 250px;
 	width: inherit;
 	background-color: #8eff60;
 }
