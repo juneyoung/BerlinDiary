@@ -15,10 +15,6 @@ export default class LinearContentsContainer extends Component {
 
 		// 여기서 Linear
 		let posts = this.props.posts;
-		console.log('Here are the posts :: ', posts);
-		window.posts = posts;
-
-
 		return (
 			<div className='linearContentsContainer'>
 				<div>

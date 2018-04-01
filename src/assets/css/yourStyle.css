@@ -81,7 +81,6 @@ div.mainContainer>div.dimmed {
 
 div.linearContentsContainer {
 	padding: 5%;
-	height: 100%;
 	max-height: 1500px;
 	overflow-y: auto;
 }
@@ -117,6 +116,7 @@ div.table_row>div.cellTitle {
 }
 
 div.table_row>div.cellContents {
+	display: grid;
 	vertical-align: middle;
 	padding: 1%;
 }
