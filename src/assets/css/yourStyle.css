@@ -1,22 +1,20 @@
 body {
-	
+	background-color: #333333;	
 }
+
 
 
 div.bg_video {
 	width: 100%;
-	z-index: -99;
-	background-color: #C0C0C0;
+	height: 100%;
+	z-index: -98;
 	min-height: 200px;
 	position: fixed;
 }
 
 div.mainContainer {
 	width: 100%;
-	opacity: 0.5;
-	background-color: #3366ff;
 	min-height: 200px;
-	/*position: fixed;*/
 }
 
 /* title shot */
@@ -48,7 +46,7 @@ div.mainContainer>div.mainBanner>div.titleHolder>p {
 div.mainContainer>div.mainBanner>div.float_info {
 	position: absolute;
 	top: 10px;
-	right: 10px;
+	right: 20px;
 }
 
 img.githubLog {
@@ -57,11 +55,19 @@ img.githubLog {
 }
 
 div.mainContainer>div.contentsHolder {
-	width: 80%;
-	background-color: #CCE5FF;
+	width: 100%;
 	min-height: 200px;
-	margin-left: 10%;
-	/*padding: 20px;*/
+	overflow: hidden;
+}
+
+div.contentsHolder>div.dimGround {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+
+	background-color: #333333;
+	z-index: -90;
+	opacity: .7;
 }
 
 
@@ -70,33 +76,44 @@ div.mainContainer>div.contentsHolder {
 */
 
 div.linearContentsContainer {
-	background-color: #f98866;
+	padding: 2%;
 	height: 100%;
-	/*overflow: auto;*/
 }
 
 
 div.horizontalContents {
 	display: table;
 	margin: 2%;
+	width: inherit;
 }
 
 div.table_row {
 	display: table-row;
 	min-height: 200px;
+	width: inherit;
 	background-color: #8eff60;
 }
 
 div.table_row>div.table_cell {
 	display: table-cell;
 	background-color: #6cdaee;
+	overflow: hidden;
+	min-width: 150px;
 }
 
 
-div.dateTitle {
+div.table_row>div.cellTitle {
+	color: white;
+	font-weight: bold;
+	font-size: 2em;
 	max-width: 50px;
-	align-content: center;
-	background-color: #fbe8a6 !important;
+	vertical-align: middle;
+	background-color: #272f2e !important;
+}
+
+div.table_row>div.cellContents {
+	vertical-align: middle;
+	padding: 1%;
 }
 
 
@@ -105,7 +122,6 @@ div.dateTitle {
 */
 
 div.footer {
-	/*position: relative;*/
 	background-color: #272f2e;
 }
 

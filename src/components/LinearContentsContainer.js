@@ -34,7 +34,6 @@ export default class LinearContentsContainer extends Component {
 
 		return (
 			<div className='linearContentsContainer'>
-				<p>{this.state.debuggingName}</p>
 				<div>
 					{
 						Object.keys(posts).map((date, i) => {

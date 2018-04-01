@@ -18,10 +18,11 @@ export default class HorizontalContentsContainer extends Component {
 		return (
 			<div className='horizontalContents'>
 				<div className='table_row'>
-					<div className='table_cell dateTitle'> 
-						{ horizontalTitle } 
+					<div className='table_cell cellTitle'> 
+						{ horizontalTitle.substring(4, 6) }.{horizontalTitle.substring(6, 8)} <br/>
+						{ horizontalTitle.substring(0, 4) }
 					</div>
-					<div className='table_cell'>
+					<div className='table_cell cellContents'>
 						{
 							posts.map((post, i) => {
 								return (
