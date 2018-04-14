@@ -188,6 +188,7 @@ div.mediaPost {
     overflow-x: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+    cursor: pointer;
 }
 
 div.mediaPost>img {
@@ -199,3 +200,81 @@ div.mediaPost>video {
 	width: 200px;
 	height: auto;
 }
+
+
+/*
+	Modal
+*/
+
+div.modal {
+	display: block;
+	position: fixed;
+	left: 0;
+	top: 0;
+	z-index: 99999;
+	width: 100%;
+	height: 100%;
+	padding-top: 100px;
+
+	background-color: black;
+	background-color: rgba(0, 0, 0, 0.4);
+	-webkit-transition: 0.5s;
+	overflow: auto;
+	transition: all 0.3s linear;
+}
+
+div.modal>div.content {
+	background-color: #fefefe;
+	margin: auto;
+	padding: 2%;
+	border-radius: 4px;
+	width: 80%;
+	/*min-height: 450px;*/
+	max-height: 80%;
+	overflow-y: auto;
+}
+
+div.modal>div.content>div.top {
+	min-height: 20px;
+}
+
+div.modal>div.content>div.container {
+	margin-top: 20px;
+	padding-left: 20px;
+	padding-right: 20px;
+}
+
+div.modal>div.content>div.container>div.title {
+	margin-top: 20px;
+	font-style: bold;
+	font-size: 2em;
+
+	text-overflow:ellipsis;
+	white-space:nowrap;
+	word-wrap:normal;
+	/*width:100px;*/
+	overflow:hidden;
+}
+
+div.modal>div.content>div.container>div.media {
+	margin-top: 20px;
+}
+
+div.modal>div.content>div.container>div.description {
+	margin-top: 20px;
+	text-align: left;
+	overflow-y: hidden;
+}
+
+.modalClose {
+  color: #aaaaaa;
+  float: right;
+  font-size: 20px;
+}
+
+.modalClose:hover, .modalClose:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+

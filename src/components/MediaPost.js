@@ -7,6 +7,12 @@ export default class MediaPost extends Component {
 		this.state = {
 			componentName : 'mediaPost'
 		}
+		this.openModal = this.openModal.bind(this);
+	}
+
+
+	openModal(){
+		console.log('Open modal');
 	}
 
 	render () {
@@ -27,7 +33,7 @@ export default class MediaPost extends Component {
 		console.log('reactContent', reactContent);
 
 		return (
-			<div className='mediaPost'>
+			<div className='mediaPost' onClick={ this.openModal }>
 				<div>
 					{reactContent}
 				</div>

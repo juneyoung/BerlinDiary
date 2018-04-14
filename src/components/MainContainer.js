@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import MainBanner from './MainBanner';
 import LinearContentsContainer from './LinearContentsContainer'
+import ModalContent from './modal/ModalContent'
 
 export default class MainContainer extends Component {
 	constructor () {
@@ -162,6 +163,7 @@ export default class MainContainer extends Component {
 	render () {
 		return (
 			<div className='mainContainer'>
+				<ModalContent/>
 				<MainBanner />
 				<div className='contentsHolder'>
 					<div className='contentBg dimmed'></div>
