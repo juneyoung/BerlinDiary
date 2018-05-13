@@ -17,4 +17,5 @@
 `plans` 디렉토리 이하에 해당 내용을 기록할 수 있도록 한다
 
 ## 내역
-- 2018.03.14 새벽에 삘받아서 초안 작성 
+- [No1. 프로젝트 시작하기](https://github.com/juneyoung/BerlinDiary/blob/master/plans/notes/2018_03_14_NO1.md)
+- [No2. 드롭박스 연결하기](https://github.com/juneyoung/BerlinDiary/blob/master/plans/notes/2018_05_13_NO2.md)
