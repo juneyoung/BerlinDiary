@@ -159,7 +159,8 @@ export default class MainContainer extends Component {
 			let dropBoxInfo = this.props.apiKeys.filter(mem => {
 				return mem.vendor === 'dropbox';
 			})
-			dropbox = new Dropbox.Dropbox({ accessToken:  dropBoxInfo.accessToken });
+			console.log('dropBoxInfo :: ', dropBoxInfo);
+			dropbox = new Dropbox.Dropbox({ accessToken:  dropBoxInfo[0].accessToken });
 		} catch(dropboxException) {
 			console.error('An Error Occurs while initialize Dropbox. set dropbox variable as null :: ', dropboxException);
 		}
@@ -196,7 +197,7 @@ export default class MainContainer extends Component {
 	render () {
 		return (
 			<div className='mainContainer'>
-				<ModalContent/>
+				{/* <ModalContent/> */}
 				<MainBanner />
 				<div className='contentsHolder'>
 					<div className='contentBg dimmed'></div>
