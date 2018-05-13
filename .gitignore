@@ -10,7 +10,7 @@
 /build
 
 # private Info
-/src/assets/secrets/*
+/src/assets/secrets/keys.json
 
 
 # misc
