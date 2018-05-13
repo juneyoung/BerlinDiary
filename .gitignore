@@ -10,7 +10,8 @@
 /build
 
 # private Info
-/src/assets/secrets/**/*
+/src/assets/secrets/*
+
 
 # misc
 .DS_Store
