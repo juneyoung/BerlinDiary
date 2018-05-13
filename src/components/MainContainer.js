@@ -2,10 +2,11 @@ import React, { Component } from 'react';
 import MainBanner from './MainBanner';
 import LinearContentsContainer from './LinearContentsContainer'
 import ModalContent from './modal/ModalContent'
+import Dropbox from 'dropbox';
 
 export default class MainContainer extends Component {
-	constructor () {
-		super();
+	constructor (props) {
+		super(props);
 
 		let sampleData = {
 
@@ -153,12 +154,44 @@ export default class MainContainer extends Component {
 		};
 
 
+		let dropbox = null;
+		try {
+			let dropBoxInfo = this.props.apiKeys.filter(mem => {
+				return mem.vendor === 'dropbox';
+			})
+			dropbox = new Dropbox.Dropbox({ accessToken:  dropBoxInfo.accessToken });
+		} catch(dropboxException) {
+			console.error('An Error Occurs while initialize Dropbox. set dropbox variable as null :: ', dropboxException);
+		}
+		
 		this.state = {
 			debuggingName : 'Main Container Area'
 			, sampleData : sampleData
+			, dropbox : dropbox
 		}
-
 	}
+
+
+	componentWillReceiveProps = () => {
+		console.log('componentWillReceiveProps');
+	}
+
+
+	componentDidMount = () => {
+		if(!! this.state.dropbox) {
+			console.log('on ComponentDidMount !!');
+			this.state.dropbox.filesListFolder({path: ''})
+			  .then(function(response) {
+			    console.log('data fetched from dropbox successfully :: ', response);
+			  })
+			  .catch(function(error) {
+			    console.log(error);
+			});	
+		} else {
+			console.log('Dropbox data is null');
+		}
+	}
+
 
 	render () {
 		return (
