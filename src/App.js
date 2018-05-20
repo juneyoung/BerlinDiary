@@ -4,6 +4,7 @@ import MainContainer from './components/MainContainer';
 import StaticFooter from './components/StaticFooter'
 import './App.css';
 import apiKeys from './assets/secrets/keys.json';
+import ElasticsearchClient from './assets/scripts/ElasticsearchClient';
 
 class App extends Component {
 
@@ -12,6 +13,18 @@ class App extends Component {
     this.state = {
       apiKeys : apiKeys
     }
+  }
+
+  componentDidMount = () => {
+    ElasticsearchClient.ping({
+      requestTimeout : 1000 
+    }, function (err) {
+      if(err) {
+        console.trace('elasticsearch cluster is down!');
+      } else {
+        console.log('All is well');
+      }
+    })
   }
 
   render() {
