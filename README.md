@@ -19,3 +19,4 @@
 ## 내역
 - [No1. 프로젝트 시작하기](https://github.com/juneyoung/BerlinDiary/blob/master/plans/notes/2018_03_14_NO1.md)
 - [No2. 드롭박스 연결하기](https://github.com/juneyoung/BerlinDiary/blob/master/plans/notes/2018_05_13_NO2.md)
+- [No3. 엘라스틱 서치와 라우팅](https://github.com/juneyoung/BerlinDiary/blob/master/plans/notes/2018_05_20_NO3.md)
