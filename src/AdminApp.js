@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from "react-router-dom";
+import PostList from './components/admin/PostList';
+import StaticFooter from './components/StaticFooter';
+import './assets/css/yourStyleAdmin.css';
 
 export default class AdminApp extends Component {
 	
@@ -15,9 +18,15 @@ export default class AdminApp extends Component {
 		return (
 			<div>
 				<p> { this.state.componentName } </p>
-				<Link to='/'>
-					Service Page
-				</Link>
+				<div className='admin_navi'>
+					<Link to='/'>
+						Service Page
+					</Link>
+				</div>
+				<div className='admin_contanier'>
+					<PostList />
+				</div>
+				<StaticFooter />
 			</div>
 		);
 	}

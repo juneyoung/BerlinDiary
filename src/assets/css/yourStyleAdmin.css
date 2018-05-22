@@ -1,0 +1,35 @@
+div.admin_contanier {
+	align-content: center;
+}
+
+
+/*
+	Listing ...
+*/
+
+
+div.table {
+	display: table;
+	background-color: white;
+	margin: 5%;
+}
+
+
+div.th {
+	display: table-header-group;
+}
+
+div.tr {
+	display: table-row;
+}
+
+div.td {
+	display: table-cell;
+	padding: 2%;
+	min-width: 100px;
+}
+
+div.postList {
+	width: 80%;
+	padding-left: 10%;
+}
