@@ -33,17 +33,17 @@ export default class PostList extends Component {
 	}
 
 
-	onPostClick = () => {
-
+	onPostClick = (id) => {
+		console.log('on Post Click :: ', id);
 	}
 
 	render () {
+		let ref = this;
 		let items = this.state.postList.map((mem, i) => {
-			console.log('in map ,', mem, i);
 			return (
 				<div key={i} className='tr'>
 					<div className='td'> { mem._id } </div>
-					<div className='td'> { mem._source.title } </div>
+					<div className='td'><a href='#' onClick= { ref.onPostClick.bind(ref, mem._id) } > { mem._source.title } </a></div>
 					<div className='td'> { mem._source.created } </div>
 					<div className='td'> { mem._source.changed } </div>
 				</div>);
