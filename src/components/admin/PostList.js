@@ -133,8 +133,8 @@ export default class PostList extends Component {
 					contentLabel="Post Modal"
 				>
 					<h2 ref={subtitle => this.subtitle = subtitle}>{ isUpdate ? 'Update Post' : 'Create Post' }</h2>
-						<PostForm data={ this.state.modalContent } isUpdate={ isUpdate } closeEvt={ this.closeModal } onFinish={ this.onModalFinish }/>
-					</Modal>
+					<PostForm data={ this.state.modalContent } isUpdate={ isUpdate } closeEvt={ this.closeModal } onFinish={ this.onModalFinish }/>
+				</Modal>
 			</div>
 		);
 	}	

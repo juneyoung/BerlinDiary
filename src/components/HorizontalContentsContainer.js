@@ -12,7 +12,7 @@ export default class HorizontalContentsContainer extends Component {
 
 	render () {
 
-		console.log(this.props);
+		// console.log('HorizontalContentsContainer', this.props);
 		let horizontalTitle = this.props.title;
 		let posts = this.props.data;
 
@@ -24,29 +24,10 @@ export default class HorizontalContentsContainer extends Component {
 						{ horizontalTitle.substring(0, 4) }
 					</div>
 					<div className='table_cell cellContents'>
-						<MediaSlider data={posts}/>
+						<MediaSlider data={posts}  onPostSelect={ this.props.onPostSelect }/>
 					</div>
 				</div>
 			</div>
 		);
 	}
 }
-
-
-
-/*
-{
-	posts.map((post, i) => {
-		return (
-			<div key={i} className='mediaPost'>
-				<div>
-					{ post.date }
-				</div>
-				<div>
-					{ JSON.stringify(post) }
-				</div>
-			</div>
-		);	
-	})
-}
-*/

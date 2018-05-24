@@ -1,31 +1,39 @@
 import React, { Component } from 'react';
 import MainBanner from './MainBanner';
 import LinearContentsContainer from './LinearContentsContainer'
-import ModalContent from './modal/ModalContent'
-import Dropbox from 'dropbox';
+// import ModalContent from './modal/ModalContent'
 import sampleData from '../assets/data/testData.json';
 import ElasticsearchClient from '../assets/scripts/ElasticsearchClient';
+
+// 여기서 던지는 게 맞을 거 같은데...
+import Modal from 'react-modal'
+import PostView from './PostView'
+
+const postModalCustomStyles = {
+  content : {
+    top                   : '50%',
+    left                  : '50%',
+    right                 : 'auto',
+    bottom                : 'auto',
+    marginRight           : '-50%',
+    transform             : 'translate(-50%, -50%)',
+    width				  : '80%'	
+  }
+};
+
 
 export default class MainContainer extends Component {
 	constructor (props) {
 		super(props);
-
-		let dropbox = null;
-		try {
-			let dropBoxInfo = this.props.apiKeys.filter(mem => {
-				return mem.vendor === 'dropbox';
-			})
-			console.log('dropBoxInfo :: ', dropBoxInfo);
-			dropbox = new Dropbox.Dropbox({ accessToken:  dropBoxInfo[0].accessToken });
-		} catch(dropboxException) {
-			console.error('An Error Occurs while initialize Dropbox. set dropbox variable as null :: ', dropboxException);
-		}
-		
 		this.state = {
 			debuggingName : 'Main Container Area'
 			, data : sampleData
-			, dropbox : dropbox
+			, modalIsOpen : false
+			, modalContent : {}
 		}
+		this.openModal = this.openModal.bind(this);
+    	this.afterOpenModal = this.afterOpenModal.bind(this);
+    	this.closeModal = this.closeModal.bind(this);
 	}
 
 	regroup = (coll, f) => {
@@ -78,21 +86,45 @@ export default class MainContainer extends Component {
 		})
 	}
 
+	openModal(data) {
+		this.setState({ modalIsOpen: true, modalContent: (data || {}) });
+	}
+
+	afterOpenModal() {
+		console.log('define something after open modal');
+	}
+
+	closeModal() {
+		this.setState({modalIsOpen: false, modalContent: {}});
+	}
 
 	componentDidMount = () => {
 		this.listingPosts();
 	}
 
+	componentWillMount () {
+		Modal.setAppElement('body');
+	}
 
 	render () {
 		return (
 			<div className='mainContainer'>
-				{/* <ModalContent/> */}
 				<MainBanner />
 				<div className='contentsHolder'>
 					<div className='contentBg dimmed'></div>
-					<LinearContentsContainer posts={this.state.data}/>
+					<LinearContentsContainer posts={this.state.data} onPostSelect={ this.openModal }/>
 				</div>
+
+				<Modal
+					isOpen={ this.state.modalIsOpen }
+					onAfterOpen={ this.afterOpenModal }
+					onRequestClose={ this.closeModal }
+					style={ postModalCustomStyles }
+					contentLabel="Post Modal"
+				>
+					<h2 ref={subtitle => this.subtitle = subtitle}>{ this.state.modalContent.title || 'Title is empty' }</h2>
+					<PostView data={ this.state.modalContent } closeEvt={ this.closeModal } />
+				</Modal>
 			</div>
 		)
 	}

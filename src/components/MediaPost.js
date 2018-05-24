@@ -7,19 +7,18 @@ export default class MediaPost extends Component {
 		this.state = {
 			componentName : 'mediaPost'
 		}
-		this.openModal = this.openModal.bind(this);
 	}
 
-
-	openModal(){
-		console.log('Open modal');
+	onPostClick = () => {
+		this.props.onPostSelect(this.props.data);
 	}
 
 	render () {
 
-		let mediaType = this.props.data.type;
-		let title = this.props.data.title;
-		let resourceUrl = this.props.mediaUrl;
+		let data = this.props.data || {};
+		let mediaType = data.type;
+		let title = data.title;
+		let resourceUrl = data.mediaUrl;
 
 		let reactContent = (mediaType === 'video') ? 
 			(
@@ -30,10 +29,8 @@ export default class MediaPost extends Component {
 				<img src='assets/images/404.jpg' width='200' height='auto'></img>
 			);
 
-		console.log('reactContent', reactContent);
-
 		return (
-			<div className='mediaPost' onClick={ this.openModal }>
+			<div className='mediaPost' onClick={ this.onPostClick }>
 				<div>
 					{reactContent}
 				</div>
@@ -42,18 +39,3 @@ export default class MediaPost extends Component {
 		);
 	}
 }
-
-/*
-
-20180325083000
-{"seq":0
-,"date":20180325083000
-,"type":"video"
-,"mediaUrl":"http://127.0.0.1:3000/assets/media/dock.mp4",
-"title":"Arrived in Berlin International airport"
-,"desc":"Arrived in Berlin. Begin life as Berliner"
-}
-
-20180325123000
-{"seq":1,"date":20180325123000,"type":"photo","mediaUrl":"http://127.0.0.1:3000/assets/images/beer.png","title":"Lunch in Berlin, first day","desc":"Very first lunch in Germany in 2018"}
-*/

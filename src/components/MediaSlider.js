@@ -8,14 +8,14 @@ export default class MediaSlider extends Component {
 
 
 	render() {
-
+		// console.log('MediaSlider :: ', this.props);
 		let data = this.props.data;
 		return (
 			<div className='mediaSlider'>
 				{
 					data.map((post, i) => {
 						return (
-							<MediaPost data={post} key={i}/>
+							<MediaPost data={post} key={i}  onPostSelect={ this.props.onPostSelect }/>
 						);	
 					})
 				}
