@@ -74,23 +74,6 @@ export default class PostList extends Component {
 	}
 
 	componentDidMount () {
-		// let ref = this;
-		// console.log('component did mount called');
-		// ElasticsearchClient.search({
-		// 	index : 'berlin'
-		// 	, type: 'post'
-		// 	, q: '*:*'
-		// 	, sort : "_id:desc"	// : and comma string
-		// }, function(err, resp) {
-		// 	if(err) {
-		// 		console.error('An error occurs while listing post', err);
-		// 	} else {
-		// 		console.log('Successfully list an index - post', resp.hits.hits);
-		// 		if(resp.hits.hits){
-		// 			ref.setState({ postList : resp.hits.hits })
-		// 		}
-		// 	}
-		// })
 		this.listingPosts();
 	}
 

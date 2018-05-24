@@ -112,6 +112,7 @@ export default class PostForm extends Component {
         }
 
         // dropBox API 로 파일 업데이트를 하자 
+        // https://github.com/jpuri/react-draft-wysiwyg/issues/445
         // DropBox 는 절대적으로 Promise 를 반환해야 함 - 구린데??
         return new Promise(
             (resolve, reject) => {

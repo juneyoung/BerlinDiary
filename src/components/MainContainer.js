@@ -3,156 +3,12 @@ import MainBanner from './MainBanner';
 import LinearContentsContainer from './LinearContentsContainer'
 import ModalContent from './modal/ModalContent'
 import Dropbox from 'dropbox';
+import sampleData from '../assets/data/testData.json';
+import ElasticsearchClient from '../assets/scripts/ElasticsearchClient';
 
 export default class MainContainer extends Component {
 	constructor (props) {
 		super(props);
-
-		let sampleData = {
-
-			20180630 : [
-				{
-					seq : 0
-					, date : 20180330063000
-					, type : 'photo'
-					, mediaUrl : 'http://127.0.0.1:3000/assets/media/morning.mp4'
-					, title : 'Morning Impression of Berlin'
-					, desc : 'Good morning, Berlin!'
-				}
-				, {
-					seq : 1
-					, date : 20180330123000
-					, type : 'photo'
-					, mediaUrl : 'http://127.0.0.1:3000/assets/images/afternoon.png'
-					, title : 'Lunch in Berlin, second day'
-					, desc : 'Blah Blah Blah Blah Blah Blah Blah'
-				}
-				, {
-					seq : 2
-					, date : 20180330123000
-					, type : 'photo'
-					, mediaUrl : 'http://127.0.0.1:3000/assets/images/afternoon.png'
-					, title : 'Lunch in Berlin, second day'
-					, desc : 'Blah Blah Blah Blah Blah Blah Blah'
-				}
-				, {
-					seq : 3
-					, date : 20180330123000
-					, type : 'photo'
-					, mediaUrl : 'http://127.0.0.1:3000/assets/images/afternoon.png'
-					, title : 'Lunch in Berlin, second day'
-					, desc : 'Blah Blah Blah Blah Blah Blah Blah'
-				}
-				, {
-					seq : 4
-					, date : 20180330123000
-					, type : 'photo'
-					, mediaUrl : 'http://127.0.0.1:3000/assets/images/afternoon.png'
-					, title : 'Lunch in Berlin, second day'
-					, desc : 'Blah Blah Blah Blah Blah Blah Blah'
-				}
-				, {
-					seq : 5
-					, date : 20180330123000
-					, type : 'photo'
-					, mediaUrl : 'http://127.0.0.1:3000/assets/images/afternoon.png'
-					, title : 'Lunch in Berlin, second day'
-					, desc : 'Blah Blah Blah Blah Blah Blah Blah'
-				}
-			], 
-			20180629 : [
-				{
-					seq : 0
-					, date : 20180329063000
-					, type : 'photo'
-					, mediaUrl : 'http://127.0.0.1:3000/assets/media/morning.mp4'
-					, title : 'Morning Impression of Berlin'
-					, desc : 'Good morning, Berlin!'
-				}
-				, {
-					seq : 1
-					, date : 20180329123000
-					, type : 'photo'
-					, mediaUrl : 'http://127.0.0.1:3000/assets/images/afternoon.png'
-					, title : 'Lunch in Berlin, second day'
-					, desc : 'Blah Blah Blah Blah Blah Blah Blah'
-				}
-			],
-			20180628 : [
-				{
-					seq : 0
-					, date : 20180328063000
-					, type : 'photo'
-					, mediaUrl : 'http://127.0.0.1:3000/assets/media/morning.mp4'
-					, title : 'Morning Impression of Berlin'
-					, desc : 'Good morning, Berlin!'
-				}
-				, {
-					seq : 1
-					, date : 20180328123000
-					, type : 'photo'
-					, mediaUrl : 'http://127.0.0.1:3000/assets/images/afternoon.png'
-					, title : 'Lunch in Berlin, second day'
-					, desc : 'Blah Blah Blah Blah Blah Blah Blah'
-				}
-			],
-			20180627 : [
-				{
-					seq : 0
-					, date : 20180327063000
-					, type : 'photo'
-					, mediaUrl : 'http://127.0.0.1:3000/assets/media/morning.mp4'
-					, title : 'Morning Impression of Berlin'
-					, desc : 'Good morning, Berlin!'
-				}
-				, {
-					seq : 1
-					, date : 20180327123000
-					, type : 'photo'
-					, mediaUrl : 'http://127.0.0.1:3000/assets/images/afternoon.png'
-					, title : 'Lunch in Berlin, second day'
-					, desc : 'Blah Blah Blah Blah Blah Blah Blah'
-				}
-			],
-			20180626 : [
-				{
-					seq : 0
-					, date : 20180326063000
-					, type : 'photo'
-					, mediaUrl : 'http://127.0.0.1:3000/assets/media/morning.mp4'
-					, title : 'Morning Impression of Berlin'
-					, desc : 'Good morning, Berlin!'
-				}
-				, {
-					seq : 1
-					, date : 20180325123000
-					, type : 'photo'
-					, mediaUrl : 'http://127.0.0.1:3000/assets/images/afternoon.png'
-					, title : 'Lunch in Berlin, second day'
-					, desc : 'Blah Blah Blah Blah Blah Blah Blah'
-				}
-			],
-
-			20180625 : [
-				{
-					seq : 0
-					, date : 20180325083000
-					, type : 'video'
-					, mediaUrl : 'http://127.0.0.1:3000/assets/media/dock.mp4'
-					, title : 'Arrived in Berlin International airport'
-					, desc : 'Arrived in Berlin. Begin life as Berliner'
-				}
-				, {
-					seq : 1
-					, date : 20180325123000
-					, type : 'photo'
-					, mediaUrl : 'http://127.0.0.1:3000/assets/images/beer.png'
-					, title : 'Lunch in Berlin, first day'
-					, desc : 'Very first lunch in Germany in 2018'
-				}
-			]
-		};
-
 
 		let dropbox = null;
 		try {
@@ -167,32 +23,10 @@ export default class MainContainer extends Component {
 		
 		this.state = {
 			debuggingName : 'Main Container Area'
-			, sampleData : sampleData
+			, data : sampleData
 			, dropbox : dropbox
 		}
 	}
-
-	/*
-		// ajax recursive 는 어떻게 처리해야 할까...
-		listRecursiveDropboxFiles = (path, func) => {
-			path = path || '';
-			console.log('listing dropboxFiles path :: ', path);
-			this.state.dropbox.filesListFolder({path: path})
-			  .then(function(response) {
-			    console.log('data fetched from dropbox successfully :: ', response.entries);
-			    var entries = response.entries || [];
-			    for(idx in entries) {
-			    	let entry = entries[idx];
-			    	if(entry['.tag'] === 'folder') {
-			    		path_lower: "/0625"
-			    	}
-			    }
-			  })
-			  .catch(function(error) {
-			    console.log(error);
-			});
-		}
-	*/
 
 	regroup = (coll, f) => {
 		return coll.reduce(function(acc, x) {
@@ -202,50 +36,51 @@ export default class MainContainer extends Component {
 		}, {});
 	}
 
+	listingPosts = () => {
+		console.log('listingPosts');
+		let ref = this;
+		console.log('component did mount called');
+		ElasticsearchClient.search({
+			index : 'berlin'
+			, type: 'post'
+			, q: '*:*'
+			, sort : "_id:desc"	// : and comma string
+		}, function(err, resp) {
+			if(err) {
+				alert('An Error occurs while fetching data from Elasticsearch!');
+				console.error('An error occurs while listing post', err);
+			} else {
+
+				function yyyymmdd(date){
+					if( typeof date === 'string') {
+						return date.substring(0, date.indexOf('T')).replace(/-/g, '');
+					}
+					var mm = date.getMonth() + 1; // getMonth() is zero-based
+					var dd = date.getDate();
+					return [ date.getFullYear(), (mm>9 ? '' : '0') + mm, (dd>9 ? '' : '0') + dd ].join('');
+				}
+
+				let dataList = resp.hits.hits.map((mem, i) => {
+					let tempObj = new Object();
+					tempObj.seq = mem._id;
+					tempObj.type = 'photo';
+					tempObj.mediaUrl = 'http://127.0.0.1:3000/assets/images/afternoon.png';
+					tempObj.title = mem._source.title || '';
+					tempObj.desc = mem._source.description || '';
+					tempObj.date = (!!mem._source.created) ? yyyymmdd(mem._source.created) : yyyymmdd(new Date()); 
+					return tempObj;
+				});
+
+				dataList = ref.regroup(dataList, function(x){ return x.date; })
+				// console.log('fetched Data :: ', dataList);
+				ref.setState({ data : dataList });
+			}
+		})
+	}
+
 
 	componentDidMount = () => {
-		let currentThis = this;
-		if(!! this.state.dropbox) {
-			console.log('on ComponentDidMount !!');
-			this.state.dropbox.filesListFolder({path: '', recursive: true})
-			  .then(function(response) {
-			    console.log('data fetched from dropbox successfully :: ', response.entries);
-			    let entries = response.entries || [];
-			    let distinguished = currentThis.regroup(entries, (x) => { return x['.tag']; });
-			    console.log('distinguished Entries :: ', distinguished);
-			    window.d = distinguished;
-
-			    console.log('#0. distinguished folder :: ', distinguished.folder)
-			    let folders = distinguished.folder;
-			    let files = distinguished.file;
-			    console.log('#0. distinguished file :: ', files)
-			    let tempData = currentThis.regroup(folders, (x) => { return x['name'] });
-			    console.log('#1.  tempData :: ', tempData);
-			    for (let date of Object.keys(tempData)) {
-			    	console.log('#2.  tempData-date :: ', date);
-			    	let dateElement = tempData[date][0] || {};
-			    	files.forEach(memFile => {
-			    		console.log('#3. memFile :: ', memFile);
-			    		console.log('#4. tempData :: ', tempData);
-			    		if(memFile['path_lower'].indexOf(date) > -1) {
-			    			let testTemp = Object.assign({}, memFile);
-			    			/*
-								엘리먼트 맞춰줘야 데이터 제대로 나오겠다...
-			    			*/
-			    			dateElement['items'] = dateElement['items'] || [];
-			    			dateElement['items'] = dateElement['items'].concat(memFile);
-			    		}
-			    	});
-			    }
-			    console.log('regrouped Data Array :: ', JSON.stringify(tempData));
-			    // currentThis.setState({ sampleData :  tempData });
-			  })
-			  .catch(function(error) {
-			    console.log(error);
-			});	
-		} else {
-			console.log('Dropbox data is null');
-		}
+		this.listingPosts();
 	}
 
 
@@ -256,7 +91,7 @@ export default class MainContainer extends Component {
 				<MainBanner />
 				<div className='contentsHolder'>
 					<div className='contentBg dimmed'></div>
-					<LinearContentsContainer posts={this.state.sampleData}/>
+					<LinearContentsContainer posts={this.state.data}/>
 				</div>
 			</div>
 		)
