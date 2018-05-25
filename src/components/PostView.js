@@ -7,16 +7,30 @@ export default class PostView extends Component {
 		super(props);
 	}
 
+	formatDateValues (dateStr){
+		let formated = dateStr;
+		if(dateStr.indexOf('T') > -1) {
+			formated = dateStr.replace('T', ' ');
+		}
+		formated = formated.substring(0, formated.lastIndexOf('.'));
+		return formated;
+	}
+
 	render () {
-
-		const description = this.props.data.desc || '<div></div>';
-		return (<div>
-
+		// console.log('on PostView :: ', this.props.data)
+		let data = this.props.data || {};
+		const description = data.desc || '<div></div>';
+		return Object.keys(data).length > 0 ? (<div>
+			<div className='postViewDate'> 
+				<p>
+					<small>{ this.formatDateValues(data.created) }</small>
+				</p>
+			</div>
 			<div className='postViewContent'>
 				{
 					ReactHtmlParser(description)
 				}
 			</div>
-		</div>);
+		</div>) : null;
 	}
 }

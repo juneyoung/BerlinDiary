@@ -69,6 +69,7 @@ export default class MainContainer extends Component {
 				}
 
 				let dataList = resp.hits.hits.map((mem, i) => {
+					console.log('_data_id ', mem._id);
 					let tempObj = new Object();
 					tempObj.seq = mem._id;
 					tempObj.type = 'photo';
@@ -76,6 +77,8 @@ export default class MainContainer extends Component {
 					tempObj.title = mem._source.title || '';
 					tempObj.desc = mem._source.description || '';
 					tempObj.date = (!!mem._source.created) ? yyyymmdd(mem._source.created) : yyyymmdd(new Date()); 
+					tempObj.created = mem._source.created || '';
+					tempObj.changed = mem._source.changed || '';
 					return tempObj;
 				});
 
