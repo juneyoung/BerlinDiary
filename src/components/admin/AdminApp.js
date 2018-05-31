@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from "react-router-dom";
-import PostList from './components/admin/PostList';
-import StaticFooter from './components/StaticFooter';
-import './assets/css/yourStyleAdmin.css';
+import PostList from './PostList';
+import StaticFooter from '../common/StaticFooter';
+import '../../assets/css/yourStyleAdmin.css';
 
 export default class AdminApp extends Component {
 	

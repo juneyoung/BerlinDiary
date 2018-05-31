@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import MainBanner from './MainBanner';
 import LinearContentsContainer from './LinearContentsContainer'
 // import ModalContent from './modal/ModalContent'
-import sampleData from '../assets/data/testData.json';
-import ElasticsearchClient from '../assets/scripts/ElasticsearchClient';
+import sampleData from '../../assets/data/testData.json';
+import ElasticsearchClient from '../../assets/scripts/ElasticsearchClient';
 
 // 여기서 던지는 게 맞을 거 같은데...
 import Modal from 'react-modal'
@@ -70,7 +70,7 @@ export default class MainContainer extends Component {
 
 				let dataList = resp.hits.hits.map((mem, i) => {
 					console.log('_data_id ', mem._id);
-					let tempObj = new Object();
+					let tempObj = {};
 					tempObj.seq = mem._id;
 					tempObj.type = 'photo';
 					tempObj.mediaUrl = 'http://127.0.0.1:3000/assets/images/afternoon.png';

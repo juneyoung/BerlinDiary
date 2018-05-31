@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import BackgroundVideo from './components/BackgroundVideo';
-import MainContainer from './components/MainContainer';
-import StaticFooter from './components/StaticFooter'
-import './App.css';
-import apiKeys from './assets/secrets/keys.json';
-import ElasticsearchClient from './assets/scripts/ElasticsearchClient';
+import BackgroundVideo from '../common/BackgroundVideo';
+import StaticFooter from '../common/StaticFooter';
+import MainContainer from './MainContainer';
+import '../../App.css';
+import apiKeys from '../../assets/secrets/keys.json';
+import ElasticsearchClient from '../../assets/scripts/ElasticsearchClient';
 
 class App extends Component {
 

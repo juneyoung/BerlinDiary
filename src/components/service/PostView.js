@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
-import ReactHtmlParser, { processNodes, convertNodeToElement, htmlparser2 } from 'react-html-parser';
+import ReactHtmlParser from 'react-html-parser';
 
 
 export default class PostView extends Component {
 	constructor(props) {
 		super(props);
+		console.log('useless shit. ofcourse suck lint')
 	}
 
 	formatDateValues (dateStr){

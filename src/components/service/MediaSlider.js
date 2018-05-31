@@ -4,6 +4,7 @@ import MediaPost from './MediaPost';
 export default class MediaSlider extends Component {
 	constructor() {
 		super();
+		console.log('I will do whatever I like damn lint')
 	}
 
 

@@ -3,6 +3,11 @@ import ElasticsearchClient from '../../assets/scripts/ElasticsearchClient.js';
 import PostForm from './PostForm.js';
 import Modal from 'react-modal'
 
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import * as postActions from '../../store/modules/post';
+
+
 const postModalCustomStyles = {
   content : {
     top                   : '50%',
@@ -15,8 +20,8 @@ const postModalCustomStyles = {
   }
 };
 
-export default class PostList extends Component {
 
+class PostList extends Component {
 
 	constructor () {
 		super();
@@ -59,6 +64,12 @@ export default class PostList extends Component {
 		})
 	}
 
+	fetchInfo = () => {
+		console.log('fetchInfo')
+		const {PostActions} = this.props;
+		PostActions.getList();
+	}
+
 	openModal() {
 		this.setState({modalIsOpen: true});
 	}
@@ -74,7 +85,7 @@ export default class PostList extends Component {
 	}
 
 	componentDidMount () {
-		this.listingPosts();
+		this.fetchInfo();
 	}
 
 	componentWillMount () {
@@ -98,8 +109,22 @@ export default class PostList extends Component {
 
 
 	render () {
+
+		console.log('After redux :: props ', this.props);
+
 		let ref = this;
-		let items = this.state.postList.map((mem, i) => {
+		// let items = this.state.postList.map((mem, i) => {
+		// 	return (
+		// 		<div key={i} className='tr'>
+		// 			<div className='td'> { mem._id } </div>
+		// 			<div className='td'><a href='#' onClick= { ref.onPostClick.bind(ref, mem) } > { mem._source.title } </a></div>
+		// 			<div className='td'> { mem._source.created } </div>
+		// 			<div className='td'> { mem._source.changed } </div>
+		// 		</div>);
+		// });
+
+
+		let items = this.props.postList.map((mem, i) => {
 			return (
 				<div key={i} className='tr'>
 					<div className='td'> { mem._id } </div>
@@ -108,6 +133,7 @@ export default class PostList extends Component {
 					<div className='td'> { mem._source.changed } </div>
 				</div>);
 		});
+
 		let isUpdate = Object.keys(this.state.modalContent).length > 1;
 
 		return (
@@ -139,3 +165,13 @@ export default class PostList extends Component {
 		);
 	}	
 } 
+
+// export default 
+PostList = connect(({post}) => ({
+	postList: post.postList
+}), 
+(dispatch) => ({
+	PostActions: bindActionCreators(postActions, dispatch)
+}))(PostList);
+
+export default PostList;

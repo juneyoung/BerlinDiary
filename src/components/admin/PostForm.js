@@ -7,6 +7,7 @@ import { Editor } from 'react-draft-wysiwyg';
 import '../../../node_modules/react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 import Dropbox from 'dropbox';
 import apiKeys from '../../assets/secrets/keys.json';
+import picasa from '../../assets/scripts/Picasa.js'
 
 export default class PostForm extends Component {
 	
@@ -66,7 +67,7 @@ export default class PostForm extends Component {
 				doc : null
 			}
 		}
-		let source = this.props.data._source || {};
+		// let source = this.props.data._source || {};
 		let isUpdate = this.props.isUpdate || false;
 		if(isUpdate) {
 			param = Object.assign(param, { id : this.props.data._id });
@@ -98,37 +99,43 @@ export default class PostForm extends Component {
 
 	uploadImageCallBack(file) {
 
-		let dbx = this.state.dropbox;
-        let date = new Date();
-        let year = date.getFullYear();
-        let month = date.getMonth() + 1;
-        let day = date.getDate();
-        // if (month.length < 2) month = '0' + month; 
-        // if (day.length < 2) day = '0' + day;
+        window.picasa = picasa;
+        console.log('PICASA PICASA PICASA PICASA PICASA ', picasa);
 
-        let fileInfo = {
-        	path: '/' + [ year, ( month > 9 ? '' : '0' ) + month, ( day > 9 ? '' : '0' ) + day ].join('') +  '/' + file.name
-        	, contents : file
-        }
+		let userId = '318005977835-rdst8ad0337eoc1q6edpu7umsh2e9767.apps.googleusercontent.com';
+        let albumId = 'AF1QipMXxVpYuYTe2HsdQztNw5v3rj0zPvDpElIKmmKu';
+		// let requestUrl = 'https://picasaweb.google.com/data/feed/api/user/' + userId + '/albumid/' + albumId;
+		let picasaConfig = {
+			clientId : "318005977835-rdst8ad0337eoc1q6edpu7umsh2e9767.apps.googleusercontent.com"
+			, clientSecret : "Vexq-B3W-VJot-Gvl5eCdoHT"
+			, redirectURI : "http://127.0.0.1:3000"
+		};
 
-        // dropBox API 로 파일 업데이트를 하자 
-        // https://github.com/jpuri/react-draft-wysiwyg/issues/445
-        // DropBox 는 절대적으로 Promise 를 반환해야 함 - 구린데??
-        return new Promise(
-            (resolve, reject) => {
-    	        dbx.filesUpload(fileInfo)
-				.then(function(response) {
-					console.log('dropbox Save success :: ', response, dbx);
-					// resolve({ data: {link: response.path_display}})
-					// 리소스 호출 URL 만들기가 어려움 ... ajax 에서 ajax 또 호출할 것도 아니고 그냥 data 스트림으로 처리하는 게 나을 듯 
-					resolve({ data: {link: 'https://www.dropbox.com/preview/앱/Berlin2018/' + encodeURI(response.path_display) }})
-				})
-				.catch(function(error) {
-					console.error('dropbox Save error :: ', error);
-					reject(error);
-		        });
-            }
-        );
+		const authURL = picasa.getAuthURL(picasaConfig, (err, resp) => {
+
+			console.log('authURL :: ', err, resp);
+		});
+		console.log('google Auth URL :: ', authURL);
+		let code = '4/AAAuKuBy_AG2oa_5HkEOP3Mhob7j5YYqfhTzPpA0AE-1AYiv4sb7OXjc6i03R4KkM2EbSFYYaJVvKPRP3-l2iNU#';
+		let accessToken = picasa.getAccessToken(picasaConfig, code, (err, resp) => {
+			console.log('getAccessToken :: ', err, resp);
+		})
+		console.log('accessToken :: ', accessToken);
+
+		
+		// let fileInfo = {
+		// 	title       : file.name
+		//     , summary     : file.name
+		//     , contentType : 'image/jpeg'
+		//     , binary      : file
+		// }
+
+		// let accessToken = '';
+
+		// picasa.postPhoto(code, albumId, fileInfo, (err, resp) => {
+		// 	console.log(err, resp);
+		// });
+
     }
 
 

@@ -26,7 +26,7 @@ export default class MediaPost extends Component {
 					<source src={resourceUrl} type="video/mp4"></source>
 				</video>
 			) : (
-				<img src='assets/images/404.jpg' width='200' height='auto'></img>
+				<img src='assets/images/404.jpg' alt='not found' width='200' height='auto'></img>
 			);
 
 		return (
